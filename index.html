@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            font-family: 'Ubuntu', sans-serif;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+        }
+
+        nav.sticky {
+            padding: 10px 0;
+            background: rgb(252, 97, 70);
+        }
+
+        nav .navbar {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .navbar .menu {
+            display: flex;
+        }
+
+        nav .navbar .logo a {
+            font-size: 40px;
+            font-weight: 500;
+            color: tomato;
+        }
+
+        nav.sticky .navbar .logo a {
+            color: #fff;
+        }
+
+        nav .navbar .menu li {
+            margin: 0 8px;
+            list-style: none;
+        }
+
+        nav .navbar .menu li a {
+            color: black;
+        }
+
+        nav.sticky .navbar .menu li a {
+            color: #fff;
+        }
+
+        nav .navbar .menu li a:hover {
+            color: tomato;
+            text-decoration: underline;
+        }
+
+        nav.sticky .navbar .menu li a:hover {
+            color: #1d1818;
+        }
+
+        .navbar .menu li {
+            font-size: 18px;
+            font-size: 500;
+            color: #0E2431;
+        }
+
+        .navbar .media-icon a {
+            font-size: 18px;
+            margin: 0 6px;
+            color: tomato;
+        }
+
+        nav.sticky .navbar .media-icon a {
+            color: #fff;
+        }
+
+        nav .menu-btn,
+        .navbar .cancel-btn {
+            position: absolute;
+            color: aliceblue;
+            font-size: 20px;
+            right: 30px;
+            top: 20px;
+            display: none;
+        }
+
+        nav .menu-btn {
+            color: tomato;
+        }
+
+        .home {
+            height: 100vh;
+            width: 100%;
+            /* background-color: #fff0f0; */
+            background: url(https://th.bing.com/th/id/R.27e837407c6c70a0768eaaa2f68b07f4?rik=SCFOoYaw0aTjgw&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f130000%2fvelka%2fwhite-background.jpg&ehk=jDnG9%2fGysqLOrelrn%2ba%2fLdayuLnxrfOnJ2grLBogTvo%3d&risl=&pid=ImgRaw&r=0);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .home .home-content {
+            height: 100%;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .home .text .text-one {
+            font-size: 28px;
+        }
+
+        .home .text .text-two {
+            font-size: 60px;
+            font-weight: 600;
+            margin: -3px;
+        }
+
+        .home .text .text-three {
+            font-size: 40px;
+            color: tomato;
+        }
+
+        .home .text .text-four {
+            font-size: 30px;
+            margin: 5px 0;
+        }
+
+        .home .button button {
+            outline: none;
+            color: aliceblue;
+            background-color: tomato;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 6px 8px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.4 ease;
+
+        }
+
+        .home .button button:hover {
+            color: tomato;
+            background-color: aliceblue;
+            border-color: tomato;
+        }
+
+        nav .navbar .html-logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 100px;
+            justify-content: space-between;
+        }
+
+        nav .navbar .logo a {
+            margin-right: 500px;
+        }
+
+        .about .about-details .right img {
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about .about-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about .content {
+            width: 80%;
+            margin: 40px auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .about .title span {
+            font-size: 30px;
+            font-weight: 600;
+            /* padding: 8px; */
+            position: relative;
+
+        }
+
+        .about .title span::before,
+        .about .title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: tomato;
+        }
+
+        .about .title span::after {
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -7px;
+        }
+
+        .about .about-details .left {
+            width: 55%;
+        }
+
+        .about .about-details .right {
+            width: 45%;
+        }
+
+        .about .about-details .left .topic {
+            font-size: 25px;
+            font-weight: 500;
+            color: #0E2431;
+            margin-bottom: 10px;
+        }
+
+        .about .about-details .left {
+            color: #0E2431;
+            text-align: justify;
+        }
+
+        .about .about-details .left button {
+            color: #fff;
+            background-color: tomato;
+            border: 2px solid transparent;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 17px 0;
+        }
+
+        .about .about-details .left button:hover {
+            color: tomato;
+            background-color: #fff;
+            border-color: tomato;
+        }
+
+        .skills .content {
+            width: 80%;
+            margin: 40px auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .skills .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .skills .title span {
+            font-size: 30px;
+            font-weight: 600;
+            /* padding: 8px; */
+            position: relative;
+
+        }
+
+        .skills .title span::before,
+        .skills .title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: tomato;
+        }
+
+        .skills .title span::after {
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -7px;
+        }
+
+        .skills {
+            background: #ffdfdf;
+
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+
+
+        }
+
+        .skills .content {
+            padding: 40px 0;
+
+        }
+
+        .skills .skill-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .skills .skill-details .left {
+            width: 50%;
+        }
+
+        .skills .skill-details .left p {
+            color: #0E2431;
+            text-align: justify;
+        }
+
+        .skills .skill-details .left .topic {
+            padding: 10px 0;
+            font-size: 25px;
+            font-weight: 500;
+            color: #0E2431;
+        }
+
+        .skills .skill-details .left .experience {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .skills .skill-details .boxes {
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .skills .skill-details .boxes .box {
+            width: calc(100% / 2 - 30px);
+        }
+
+        .skills .skill-details .boxes .box .topic {
+            font-size: 20px;
+            font-weight: 300;
+            color: tomato;
+        }
+
+        .skills .skill-details .boxes .num {
+            font-size: 50px;
+            font-weight: 500;
+            color: tomato;
+        }
+
+        .services .content {
+            width: 80%;
+            margin: 40px auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .services .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .services .title span {
+            font-size: 30px;
+            font-weight: 600;
+            /* padding: 8px; */
+            position: relative;
+
+        }
+
+        .services .title span::before,
+        .services .title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: tomato;
+        }
+
+        .services .title span::after {
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -7px;
+        }
+
+        .services .boxes {
+            /* width: 100%; */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .services .boxes .box {
+            width: calc(100% / 4 - 20px);
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgb(184, 183, 183);
+            padding: 20px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .services .boxes .box .icon {
+            height: 50px;
+            width: 50px;
+            color: #fff;
+            background-color: tomato;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 auto 10px auto;
+            border-radius: 100%;
+            transition: all o.4s ease;
+        }
+
+        .services .boxes .box:hover .icon {
+            color: tomato;
+            background-color: #fff;
+
+        }
+
+        .services .boxes .box:hover {
+            background-color: tomato;
+            color: #fff;
+        }
+
+        .services .boxes .box .topic {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .contact .content {
+            width: 80%;
+            margin: 40px auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .contact .title span {
+            font-size: 30px;
+            font-weight: 600;
+            /* padding: 8px; */
+            position: relative;
+
+        }
+
+        .contact .title span::before,
+        .contact .title span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: tomato;
+        }
+
+        .contact .title span::after {
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -7px;
+        }
+
+        .contact .content .text {
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgb(216, 215, 215);
+            padding: 20px 30px;
+            justify-content: center;
+        }
+
+        .content .text .box .topic {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .contact .text .box .icon i {
+            color: tomato;
+            text-align: center;
+        }
+
+        .contact .content .text .box .icon i {
+            margin: 0 10px;
+        }
+
+
+
+
+
+
+
+        @media (max-width:750px) {
+            nav .navbar .menu {
+                position: absolute;
+                left: -100%;
+                top: 0;
+                height: 100vh;
+                max-width: 460px;
+                width: 100%;
+                background-color: rgba(231, 29, 11, 0.7);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 60px;
+                transition: all 0.5s ease;
+            }
+
+            nav .navbar.active .menu {
+                left: 0;
+            }
+
+            .navbar .menu li a {
+                display: block;
+                font-size: 23px;
+                color: aliceblue;
+                margin: 10px;
+            }
+
+            nav .media-icon {
+                display: none;
+            }
+
+            nav .menu-btn,
+            .navbar .cancel-btn {
+                display: block;
+            }
+
+            nav .navbar .menu li a:hover {
+                color: rgb(255, 254, 254);
+                text-decoration: underline;
+            }
+
+            .home .text .text-two {
+                font-size: 65px;
+
+            }
+
+            .home .text .text-three {
+                font-size: 30px;
+                color: tomato;
+            }
+
+
+        }
+
+        @media (max-width:1194px) {
+            .about .content {
+                width: 80%;
+            }
+
+            .about .about-details {
+                flex-direction: column;
+            }
+
+            .about .about-details .right {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .about .about-details .left {
+                width: 100%;
+                margin: 40px 0;
+            }
+        }
+
+        @media (max-width:1111px) {
+            .skills .content {
+                width: 80%;
+            }
+
+            .skills .skill-details {
+                flex-direction: column;
+            }
+
+            .skills .skill-details .left {
+                width: 80%;
+            }
+
+            .skills .skill-details .boxes {
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .skills .skill-details .boxes .box {
+                width: calc(100% / 2 - 20px);
+            }
+        }
+
+        @media (max-width:1172px) {
+            .services .content {
+                width: 80%;
+            }
+
+            .services .boxes .box {
+                justify-content: space-between;
+
+
+            }
+
+
+        }
+
+        @media (max-width:1098px) {
+            .services .boxes .box {
+                width: calc(100% / 3 - 20px);
+
+            }
+        }
+
+        @media (max-width:746px) {
+            .services .boxes .box {
+                width: calc(100% / 2 - 20px);
+                margin: auto;
+                width: 100%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="html-logo"><img
+                    src="https://is1-ssl.mzstatic.com/image/thumb/Purple62/v4/14/4e/29/144e29f4-80de-bdf7-bf72-8107d2e06883/source/512x512bb.jpg"
+                    alt=""></div>
+            <div class="logo"><a href="#">Portfolio.</a></div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <div class="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+            </ul>
+            <div class="media-icon">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="text">
+                <div class="text-one">Hello</div>
+                <div class="text-two">I'm Sanskar Namdeo</div>
+                <div class="text-three">Web Developer</div>
+                <div class="text-four">From India</div>
+            </div>
+            <div class="button">
+                <button>Hire Me</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="content">
+            <div class="title"><span>About Me</span></div>
+            <div class="about-details">
+                <div class="right">
+                    <img src="OIP.jfif" alt="">
+                </div>
+                <div class="left">
+                    <div class="topic">Designing is my Passion</div>
+                    <p>A dedicated and detail-oriented web developer with a expertise in HTML, CSS, JavaScript and
+                        responsive design principles, I am proficient in a variety of frameworks, including React Js,
+                        Bootstrap.
+                        I am an organized, detail oriented enthusiastic problem-solver with good communication, planning
+                        and decision-making skills.
+                    </p>
+                   <a href="My Resume.pdf"><button>Download CV</button></a> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="content">
+            <div class="title"><span>My Skills</span></div>
+            <div class="skill-details">
+                <div class="left">
+                    <div class="topic">Skills Reflects Our Knowladge</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus voluptatibus rerum fugiat a
+                        ullam
+                        maiores quidem nobis est dignissimos voluptate id, quasi eos nam ex quo porro atque labore earum
+                        dicta! Ratione officia sequi laborum odit voluptatibus, nulla officiis error, incidunt sit nihil
+                        natus iusto cum vero suscipit nisi maiores dolorum.</p>
+                    <div class="experience">
+                        <div class="num">Freshers</div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="box">
+                        <div class="topic">HTML</div>
+                        <div class="num">90%</div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">CSS</div>
+                        <div class="num">80%</div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">Javascript</div>
+                        <div class="num">60%</div>
+                    </div>
+                    <div class="box">
+                        <div class="topic">PHP</div>
+                        <div class="num">50%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="content">
+            <div class="title"><span>My Services</span></div>
+            <div class="boxes">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="topic">Web Development</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="topic">Graphic Design</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="topic">Digital Marketing</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="topic">Icon Design</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <div class="topic">Photography</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="topic">Apps Developer</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint omnis cum sequi eos atque
+                        perferendis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="content">
+            <div class="title"><span>Contact Me</span></div>
+            <div class="text">
+                <div class="box">
+                    <div class="topic">Get in touch</div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, harum. Delectus possimus
+                        aliquam deleniti alias!</p>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-geo-alt" viewBox="0 0 16 16" color="tomato">
+                            <path
+                                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg>
+                        <p>Location:</p>
+                        <p>Distt. Hospital campuss, Near CMHO Office, Shahdol (M.P.) </p>
+                        <hr>
+                    </div>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope" viewBox="0 0 16 16" color="tomato">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                        </svg>
+                        <p>Email:</p>
+                        <p>sanskarnamdeo123@gmail.com</p>
+                    </div>
+                    <hr>
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>Call:</p>
+                        <p>9522059335, 8889343696</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
